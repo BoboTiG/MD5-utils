@@ -1,21 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id       : MD5-utils-lite $
-# $Author   : BoboTiG $
-# $Revision : 2 $
-# $Date     : 2011/12/05 $
-# $HeadURL  : http://www.bobotig.fr/ $
-#
-# MD5-utils Lite version, returns :
-#   - nothing if wrong hash or no result ;
-#   - the MD5 reverse of the hash if found.
-#
-# Usage : perl md5-utils-lite.pl <hash>
-#
-# Dependances :
-#    - threads support
-#    - Digest::MD5
-#    - LWP::UserAgent
+# Test all servers.
 #
 
 
