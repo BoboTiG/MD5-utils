@@ -11,9 +11,6 @@ MD5-utils comes with ABSOLUTELY NO WARRANTY.
 This is free software, and you are welcome to redistribute it under  
 certain conditions. See the GNU General Public Licence for details.  
 
-MD5-utils is a script for MD5 hash function manipulations.  
-It can crypt one or more word(s) and try to crack one or more hash(es) using online servers.
-
 
 English
 ---
