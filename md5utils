@@ -1,0 +1,10 @@
+#!/bin/sh -e
+#
+# BoboTiG - 15 aug 2010 (UP : 01 jan 2011).
+# MD5-Utils launcher.
+#
+
+path=$(dirname $(readlink -f $0))
+cd ${path}/bin
+perl md5-utils.pl "$@"
+exit

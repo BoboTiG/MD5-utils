@@ -1,0 +1,149 @@
+=== 2011/01/22 ===
++ added the MD5-utils lite version (md5crack)
++ code reviewed
++ server added: www.onlinehashcrack.com
++ server deleted: cryptohaze.com, www.gdataonline.com, blacklight.gotdns.org, decrypt.vanvan.cc
+
+
+=== 2010/09/21 ===
++ server added: api.dev.c0llision.net
++ servers uncommented: hashcracking.info, www.passcracking.com, milw0rm.com, decrypt.vanvan.cc
+
+
+=== 2010/07/28 ===
++ avoid warning message when a thread terminated abnormally
++ code modified to succesfully pass Perl::Critic (severity 'brutal')
+
+
+=== 2010/06/25 ===
++ change error messages filtering by adding server name and its message into a hash %dont_mind
++ sanitizing configurations variables
++ change 0 and 1 to false and true into md5-utils.cfg
++ useless use of HTTP::Request::Common module
++ servers commented: milw0rm.com
+
+=== 2010/06/19 === *** Upgrade to the GNU GPL license version 3 or higher ***
++ [TODO] In interactive mode, add history for GNU/Linux users: done.
++ [TODO] "MD5-utils is too polite" => need to launch several requests simultaneously: done.
++ md5-utils.cfg created to manage options
++ MD5utils::i18n and MD5utils::servers packages created for easier modifications
++ added proxy support
++ added coloration for board
++ added --imode option to enter into interactive mode
++ interactive mode reviewed, more complete and as similar as normal mode
++ added options to interactive mode:
+    [] 'crypt' to crypt words like -c
+    [] 'file' to crack hashes contained into a file like -f option
+    [] 'set' to manage options
+    [] 'quit' to exit
++ code reviewed:
+	[] HTML::Entities, Switch, charnames and Encode are no longer needed ;
+	[] check for all necessary modules ;
+	[] fixed color codes ;
+	[] with -f (or --file) option, files found.txt and not-found.txt will append into the same folder as the file containing MD hashes ;
+	[] deleted searches for salted MD5 and file MD5 sums ;
+	[] deleted -t (or --test) option ;
+	[] added complete informations for all subs ;
+	[] added username in interactive mode prompt ;
+	[] added read_config() sub to read the configuration file ;
+	[] added is_numeric() sub to test if a variable is numeric or not ;
+	[] added purge_array() sub to purge an array from a value ;
++ servers added: www.google.com, www.stringfunction.com, tools.benramsey.com, schwett.com, md5.my-addr.com
++ servers regexp fixed: www.cloudcracker.net, hashcracking.info, www.md5decryption.com
++ servers deleted:
+	[down]: ice.breaker.free.fr, www.md5cracker.pl, md5.hamaney.net, www.securitystats.com, md5.ip-domain.com.cn
+	[captcha]: www.md5decrypter.co.uk
+	[too bad performances]: www.cmd5.com, tmto.org
+
+
+=== 2009/09/24 ===
++ added -i option to enter in interactive mode
+    [] available commands are clear, crack, exit, help, list and update
++ added clear_console() sub to clear the console and add title
++ added message_interactive() sub to display a nice title in interactive mode (font used: stop)
++ added eradicate_accents() sub to eradicate accents if french language is chosen under Windows OS like
++ added MD5-utils.bat and MD5-utils short cuts
++ code reviewed, change loops 'for' to 'foreach' and other details
++ special server added for file md5 sum (sunsolve.sun.com)
++ server deleted cause of captcha (hash.insidepro.com)
+
+
+=== 2009/08/20 === *** distributed with Joomscan ***
++ bug fixed when $method was out of range
++ bug fixed when $result contained russian chars
++ added arg for -s (or --salt), use '-1' for the method to test all available methods
++ delete wrong -s (or --salt) explanation in help message
++ when $result is a hash, we try to crack it too (not for -di option)
++ regexp fixed for www.passcracking.com and milw0rm.com servers
++ servers added (md5.allfact.info, bokehman.com, www.cloudcracker.net)
+
+
+=== 2009/07/06 ===
++ bug fixed whith -f (or --file) option (solve end char problems with Mac and Windows)
++ bug fixed with -d option (length($hash_to_crack))
++ added rtrim sub (remove trailing withespace)
+
+
+=== 2009/07/01 ===
++ added output file for -d option (founds.txt and nofounds.txt are permanent)
++ added -di option, it will return the plaintext found or nothing
++ added a variable on the top script for disabled servers, -l or --list to know which
++ is_in_array() sub reviewed, more efficient now
++ change check_response() sub to is_in_array() sub
++ servers added (md5.bobotig.fr, cryptohaze.com)
+
+
+=== 2009/06/29 ===
++ when -f option is used, the file was delete, not now.
++ uniq_array() sub reviewed for returned just hashes not found
++ search() sub reviewed, now it add all not found hashes in the not-found.txt file
++ added -s and --salt options for trying to crack one hash with salt
++ change syntax in found.txt (hash:text)
++ added array containing sites which use a captcha, just for the furtur when will be able to bypass them
+
+
+=== 2009/06/24 ===
++ when -f option is used, we sort and uniq the list
++ when -f option is used, if finished, we delete the file
++ uniq_array() sub reviewed, more efficient now
++ added --salt option, you can specify a salt (--salt="SALT")
++ added --method option to specify the method to use (--method=x)
++ added --show-methods option to know available methods
++ added some CMS and boards which used these methods (infos from Waraxe Forums)
++ server added (md5.hamaney.net) [SALT]
+
+
+=== 2009/06/23 ===
++ bug fixed in console when $result contained accentued char
+
+
+=== 2009/06/19 ===
++ bug fixed when $result contained HTML codes
++ added output files (found.txt and not-found.txt) when -f opion is used
++ in regexp, change [A-Za-z0-9]{32} to [A-Fa-f0-9]{32}
++ change arborescense in LZM module, now: /pentest/password/md5-utils
+
+
+=== 2009/06/16 ===
++ bug fixed when -c and -d options used with --stdin or --stdout
++ bug fixed when -c option was used, the word was edited to low case, sorry for error =P
++ regexp fixed for www.md5this.com server 
++ servers added (md5.hamaney.net, hashcracking.info, www.cmd5.com)
+
+
+=== 2009/06/15 ===
++ bug fixed for -c option (perl md5-utils.pl -c qwerty returned hashes of '-c' and 'qwerty')
++ bug fixed in two conditions which test $language var
++ clean $text array for translations
++ transform hash to lower case before one search
++ update option more complete
++ servers added (netmd5crack.com, www.md5cracker.pl)
+
+
+=== 2009/06/13 ===
++ release candidate for md5-utils.pl
++ subscribe to Sourceforge.net
+
+
+=== 2009/03/05 ===
++ pre-release for md5-utils.pl

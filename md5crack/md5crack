@@ -1,0 +1,29 @@
+#!/bin/sh -e
+#
+# BoboTiG - 30 avril 2011.
+#
+# Usage : md5crack <hash [<hash> ...]>
+# Usage : md5crack <file>
+#
+
+# Variables
+titre="~ md5crack - MD5-utils lite version { BoboTiG }"
+prog="/mnt/stock/projets/md5-utils/md5crack/md5-utils-lite.pl"
+vert="\033[32;02m"
+normal="\033[0m"
+
+# C'est parti mon kiki...
+[ ! -f ${prog} ] &&	echo "Erreur :" ${prog} "introuvable." && exit 1
+[ -z "$1" ] && echo ${titre} && echo "  Usage : md5crack <hash [<hash> ...]>\n  Usage : md5crack <file>" && exit 0
+if test -f "$1"; then
+	for hash in $(cat md5); do
+		resultat=$(perl5.10.1 ${prog} ${hash})
+		[ -n "${resultat}" ] && echo ${hash}":"${vert}${resultat}${normal}
+	done
+else
+	for hash in "$@"; do
+		resultat=$(perl5.10.1 ${prog} ${hash})
+		[ -n "${resultat}" ] && echo ${hash}":"${vert}${resultat}${normal}
+	done
+fi
+exit 0

@@ -1,0 +1,7 @@
+For GNU/Linux users:
+	- edit md5utils and modifify the path where MD5-utils is situated
+	- cp md5utils /usr/bin/
+	- chmod +x /usr/bin/md5utils
+
+For Windows users:
+	- create a shortcut of md5utils.bat where you want

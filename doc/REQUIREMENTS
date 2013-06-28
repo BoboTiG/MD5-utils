@@ -1,0 +1,20 @@
+Perl version:
+	- 5.8.0 or later
+
+Built-in modules:
+	- Config
+	- Cwd
+	- File::Basename
+	
+Built-in modules for better performances (if Perl compiled with it, else do not care) :
+	- threads
+	- threads::shared
+
+Additional modules:
+	- Digest::MD5
+	- LWP::UserAgent
+	- Term::ReadLine (for GNU/Linux only)
+	
+Personal modules (no installation required):
+	- MD5utils::i18n
+	- MD5utils::servers
