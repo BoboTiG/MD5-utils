@@ -4,8 +4,8 @@
 # $HeadURL  : http://www.bobotig.fr/contenu/projets/purmous/ $
 # $Source   : http://www.bobotig.fr/contenu/projets/purmous/ $
 # $Author   : BoboTiG <bobotig@gmail.com> (http://www.bobotig.fr) $
-# $Revision : 16 $
-# $Date     : 2011/01/01 $
+# $Revision : 17 $
+# $Date     : 2013/06/28 $
 #
 
 
@@ -47,15 +47,15 @@ foreach ( @non_standard_modules ) {
 
 ### [ Script configuration ] ###
 # Version
-our $VERSION = '20110101';
+our $VERSION = '20130628';
 
 # Configuration
 my %config;
 %config = &read_config($location.'md5-utils.cfg');
 
 # Links for update
-my $up_link = 'https://github.com/BoboTiG/md5-utils/';
-my $test_version = 'md5-utils.version';
+my $link = 'https://github.com/BoboTiG/MD5-utils';
+my $up_link = 'https://raw.github.com/BoboTiG/MD5-utils/master/md5-utils.version';
 
 # Path where found.txt and not-found.txt will be created
 my $path = q{};
@@ -134,7 +134,7 @@ sub check_ms_os {
 # Update	: 20100512
 #
 sub message {
-	print 'MD5-utils v'.$VERSION.' - Copyright (C) 2009-2011 by BoboTiG.'."\n";
+	print 'MD5-utils v'.$VERSION.' - Copyright (C) 2009-2013 by BoboTiG.'."\n";
 	if ( $Config{useithreads} ) {
 		print $i18n->text('use_ithreads') ;
 	} else {
@@ -148,7 +148,7 @@ sub message {
 # Objectif	: print header message in interactive mode
 # Entries	: none
 # Returns	: void
-# Update	: 20110101
+# Update	: 20130628
 #
 sub message_interactive {
 	clear_console();
@@ -161,7 +161,7 @@ sub message_interactive {
 		' | || || || |__/ /  _____) )     | |_| || |__ | || ||___ | '."\n".
 		' |_||_||_||_____/  (______/       \____| \___)|_||_|(___/  '."\n".
 		'                                                 v'.$VERSION."\n".
-		'            Copyright (C) 2009-2011 by BoboTiG.            '."\n\n";
+		'            Copyright (C) 2009-2013 by BoboTiG.            '."\n\n";
 	return;
 }
 
@@ -1040,7 +1040,7 @@ sub uniq_array {
 # Objectif	: check online for an up to date version of MD5-utils
 # Entries	: none
 # Returns	: void
-# Update	: 20100619
+# Update	: 20130628
 #
 sub update {
 	my $ua;
@@ -1052,7 +1052,7 @@ sub update {
 	$ua = new LWP::UserAgent;
 	$ua->agent($config{user_agent});
 	$ua->proxy('http',  $config{proxy}) if $config{proxy_enable};
-	$requete = $ua->get($up_link.$test_version);
+	$requete = $ua->get($up_link);
 	if ( $requete->is_success ) {
 		$latest = rtrim($requete->content);
 		if ( ! is_numeric($latest) ) {
@@ -1061,13 +1061,14 @@ sub update {
 			print $i18n->text('latest_version').$latest;
 			print $i18n->text('update_available');
 			print $i18n->text('get_latest_version');
-			print $blue.$up_link.$normal."\n";
+			print $blue.$link.$normal."\n";
 		} elsif ( $VERSION > $latest ) {
 			print $i18n->text('latest_version').$latest;
 			print $i18n->text('futurist_version');
 		}
 	} else {
 		print $i18n->text('connection_impossible');
+		print $requete->content;
 	}
 	return;
 }

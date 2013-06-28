@@ -5,6 +5,7 @@ Built-in modules:
 	- Config
 	- Cwd
 	- File::Basename
+	- IO::Socket::SSL or Crypt::SSLeay
 	
 Built-in modules for better performances (if Perl compiled with it, else do not care) :
 	- threads
@@ -13,6 +14,7 @@ Built-in modules for better performances (if Perl compiled with it, else do not 
 Additional modules:
 	- Digest::MD5
 	- LWP::UserAgent
+	- LWP::Protocol::https
 	- Term::ReadLine (for GNU/Linux only)
 	
 Personal modules (no installation required):
