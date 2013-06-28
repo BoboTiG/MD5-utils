@@ -1,6 +1,14 @@
 === 2013/06/28 ===
 + fix update routine
-+ server deleted: md5.bobotig.fr
++ servers regexp fixed:
+	www.md5this.com, www.stringfunction.com, www.google.com, md5.my-addr.com
+	md5crack.com, www.bigtrapeze.com, www.md5hood.com, md5pass.info
++ servers commented: md5.rednoize.com
++ server deleted: 
+	md5.bobotig.fr, tools.benramsey.com, www.rmd5.com, schwett.com
+	alimamed.pp.ru, hashcracking.info, opencrack.hashkiller.com
+	www.passcracking.com, milw0rm.com, www.shell-storm.org, www.hashchecker.com
+	md5.allfact.info, bokehman.com, www.md5decrypter.com(captcha)
 
 
 === 2011/01/22 ===
