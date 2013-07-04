@@ -63,6 +63,7 @@ our @form_get = (
 	['www.stringfunction.com', 'http://www.stringfunction.com/md5-decrypter.html?st={hash}', '<textarea class="textarea-input-tool-b" rows="10" cols="50" name="result" id="textarea_md5_decrypter">(.+)</textarea>\s*</form>'],
 	['md5.hashcracking.com', 'http://md5.hashcracking.com/search.php?md5={hash}', 'Cleartext of [A-Fa-f0-9]{32} is (.+)'],
 	['md5.noisette.ch', 'http://md5.noisette.ch/md5.php?hash={hash}', '<string><!\[CDATA\[(.+)]]></string>'],
+	['tobtu.com', 'http://tobtu.com/md5.php?h={hash}', '[A-Fa-f0-9]{32}:[A-Fa-f0-9]+:(.+)\n\ncrack time:'], # /!\ 10 tries, then wait
 	#['md5.rednoize.com', 'http://md5.rednoize.com/?q={hash}', '<div id="result" >(.+)</div>'],
 	['www.google.com', 'https://www.google.com/search?num=100&q="{hash}:*"', '<em>[A-Fa-f0-9]{32}\s*(=&gt;|:|::|\|)\s*(\w+)</em>'],
 );
